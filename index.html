@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href= "./assets/style.css"/>
+
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <header><h1>Weather Dashboard</h1>
+        <p>Build your next vacation in <i>paradise.</i></p>
+        <p>Today is <span id="currentDay"></span></p>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 bg-warning">
+                <h4 class="pt-1">Search for a City:</h4>
+                <div>
+                    <input type="text">
+                    <div>
+                        <button></button>
+                    </div>
+    
+                </div>
+            </div>
+            
+            <div class="col-sm-8 bg-light">
+                <div class="border-dark rounded">
+                    <div class="col-sm-12">
+                        <h3 class="city-name"></h3>
+                        <p>Temperature:</p>
+                        <p>Humidity:</p>
+                        <p>Wind Speed:</p>
+                        <p>UV index:</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
