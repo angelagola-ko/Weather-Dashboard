@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" href= "./assets/style.css"/>
 
     <title>Weather Dashboard</title>
@@ -17,17 +19,20 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-4 bg-warning">
-                <h4 class="pt-1">Search for a City:</h4>
-                <div>
-                    <input type="text">
-                    <div>
-                        <button></button>
+            <div class="col-sm-4 bg-light">
+                <h4 class="m-3">Search for a City:</h4>
+                <div class="input-group m-3">
+                    <input type="text" class="form-control" id="search-city">
+                    <div class="input-group-append">
+                        <button class="btn bg-secondary text-light" id="search-button"><i class="fa fa-search"></i></button>
                     </div>
-    
                 </div>
-            </div>
-            
+                    <button class="btn bg-secondary ml-3 text-light" id="clear-history">Clear History</button>
+                    <ul class="list-group">
+    
+                    </ul>
+                </div>
+
             <div class="col-sm-8 bg-light">
                 <div class="border-dark rounded">
                     <div class="col-sm-12">
@@ -38,7 +43,26 @@
                         <p>UV index:</p>
                     </div>
                 </div>
-
+                <div class="col-sm-12">
+                    <h3>5-Day Forecast</h3>
+                    <div class="row">
+                        <div class="col-md-2 bg-primary ml-2 mb-3 text-white rounded">
+                            <p>hi</p>
+                        </div>  
+                        <div class="col-md-2 bg-primary ml-2 mb-3 text-white rounded">
+                            <p>hi</p>
+                        </div> 
+                        <div class="col-md-2 bg-primary ml-2 mb-3 text-white rounded">
+                            <p>hi</p>
+                        </div>   
+                        <div class="col-md-2 bg-primary ml-2 mb-3 text-white rounded">
+                            <p>hi</p>
+                        </div>  
+                        <div class="col-md-2 bg-primary ml-2 mb-3 text-white rounded">
+                            <p>hi</p>
+                        </div>   
+                    </div>
+                </div>
             </div>
         </div>
     </div>
