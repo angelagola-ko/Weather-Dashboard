@@ -5,8 +5,8 @@
 1. [Descripton](#description)
 2. [Installation](#installation)
 3. [Testing](#Testing)
-4. [LiveSiteAndRepo](#live-site-and-repo)
-5. [Licence](#license)
+4. [Live Site and Repo](#live-site-and-repo)
+5. [License](#license)
 6. [Contributers](#contributers)
 
 ## Description
@@ -15,15 +15,21 @@ An app that displays the weather for *any* location. Plan your next vacation in 
 
 ## Installation
 
+* Use Live Server
+
 ## Testing
 
 ![Look an image!](/assets/ "Example of Output")
 
 ## Live Site and Repo
 
+* View live site [here](brokennnn)
+* View repo [here](brokeeelikemyheart)
+
 ## License
+
+ * .
 
 ## Contributers
 
-Angela Gola <angelagola.ko@gmail.com>
-Angela Gola Send email *[here](angelagola.ko@email.com)*.
+* Angela Gola Send email: [here](mailto:angelagola.ko@gmail.com).
