@@ -21,8 +21,6 @@ var formSubmitHandler = function(event){
 }
 
 
-var apiKey="8382807303ccd8efb6fc8344617069a3";
-
 function currentWeather(city){
     var queryURL= "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + apiKey;
     fetch(queryURL).then(function(response) {
@@ -37,14 +35,14 @@ function currentWeather(city){
     }
     )};
 function currentCityWeather(lat,lon){
-    var query2URL="https://api.openweathermap.org/data/2.5/onecall?lat=" +lat +"&lon="+ lon + "&appid=" +apiKey;
+    var query2URL="https://api.openweathermap.org/data/2.5/onecall?lat=" +lat +"&lon="+ lon + "&units=imperial&appid=" +apiKey;
     fetch(query2URL).then(function(response) {
         if(response.ok) {
             response.json().then(function(data) {
                 console.log(data);
-                console.log(data.hourly[0].temp);
+                d = data;
                 forecast(data);
-                //    console.log(data.)
+                //    console.log(data);
             });
         } else {
             alert("Error:" +response.statusText);
@@ -53,12 +51,23 @@ function currentCityWeather(lat,lon){
 }
 
 function forecast(data) {
+    document.querySelector("#currentTemp").innerHTML=data.current.temp;
+    document.querySelector("#currentHumid").innerHTML=data.current.humidity;
+    document.querySelector("#currentWind").innerHTML=data.current.wind_speed;
+    document.querySelector("#currentUV").innerHTML=data.current.uvi;
+    document.querySelector("#icon").setAttribute("src", `http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`);
+
     for (i=0; i<5; i++) {
-        var li=document.getElementById("dailyWeather"+ i);
-        console.log("dailyWeather" + i);
-        var tempF=(((data.daily[i].temp.day)-275.15)*9/5 +32);
-        li.innerHTML=tempF;
-        console.log(tempF)
+        document.querySelector(".row").innerHTML+=
+      ` <div class="col-md-2 bg-primary ml-2 mb-3 text-white rounded">
+                                <p>${data.daily[i]}</p>
+                                <img src=""/> 
+                                <p>Temp</p>
+                                <p>Wind</p>
+                                <p>Humidity</p>
+         
+                            </div>  `
+    
     }
 }
 //currentWeather(cityName);
