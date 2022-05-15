@@ -7,6 +7,8 @@ var cityName="Sarasota";
 var cities=[];
 var cityFormE1=document.querySelector("#city-search-form");
 var cityInputE1=document.querySelector("#city");
+var clearE1=document.querySelector("#clear-history");
+
 //console.log(cityFormE1)
 var formSubmitHandler = function(event){
   //  console.log("Heeeello")
@@ -18,6 +20,10 @@ var formSubmitHandler = function(event){
     //    alert("Please enter a city");
     }
    // saveSearch();
+}
+
+var clearHistory = function()  {
+    localStorage.clear();
 }
 
 
@@ -57,19 +63,20 @@ function forecast(data) {
     document.querySelector("#currentUV").innerHTML=data.current.uvi;
     document.querySelector("#icon").setAttribute("src", `http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`);
 
+
     for (i=0; i<5; i++) {
-        document.querySelector(".row").innerHTML+=
+        document.querySelector(".row").innerHTML+=//${data.daily[i]}
       ` <div class="col-md-2 bg-primary ml-2 mb-3 text-white rounded">
-                                <p>${data.daily[i]}</p>
-                                <img src=""/> 
-                                <p>Temp</p>
-                                <p>Wind</p>
-                                <p>Humidity</p>
-         
-                            </div>  `
+            <p>${nowMoment}</p>
+            <img src="http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png"/> 
+            <p>Temp: ${data.daily[i].temp.day}</p>
+            <p>Wind: ${data.daily[i].wind_speed}</p>
+            <p>Humidit ${data.daily[i].humidity}</p>
+        </div>  `
     
     }
 }
 //currentWeather(cityName);
 
 cityFormE1.addEventListener("click", formSubmitHandler);
+clearE1.addEventListener("click", clearHistory);
