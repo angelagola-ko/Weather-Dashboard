@@ -8,6 +8,8 @@ var cityFormE1=document.querySelector("#city-search-form");
 var cityInputE1=document.querySelector("#city");
 var clearE1=document.querySelector("#clear-history");
 var cityName=document.querySelector("#city-name");
+var apiKey="8382807303ccd8efb6fc8344617069a3";
+
 
 //console.log(cityFormE1)
 var formSubmitHandler = function(event){
@@ -40,7 +42,7 @@ function currentWeather(city){
             alert("Error: " + response.statusText);
         }
     }
-    )};
+    )};//
 function currentCityWeather(lat,lon){
     var query2URL="https://api.openweathermap.org/data/2.5/onecall?lat=" +lat +"&lon="+ lon + "&units=imperial&appid=" +apiKey;
     fetch(query2URL).then(function(response) {
@@ -68,7 +70,7 @@ function forecast(data) {
     for (i=0; i<5; i++) {
         document.querySelector(".row").innerHTML+=//${data.daily[i]}
       ` <div class="col-md-2 bg-primary ml-2 mb-3 text-white rounded">
-            <p>${nowMoment}</p>
+            <p>${Intl.DateTimeFormat('en-us', {day:'2-digit', month:'long', year: 'numeric'}).format(data.daily[i].dt*1000)}</p>
             <img src="http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png"/> 
             <p>Temp: ${data.daily[i].temp.day} °F</p>
             <p>Wind: ${data.daily[i].wind_speed}</p>
