@@ -8,6 +8,7 @@ var cityFormE1=document.querySelector("#city-search-form");
 var cityInputE1=document.querySelector("#city");
 var clearE1=document.querySelector("#clear-history");
 var cityName=document.querySelector("#city-name");
+var apiKey="8382807303ccd8efb6fc8344617069a3";
 
 
 //console.log(cityFormE1)
