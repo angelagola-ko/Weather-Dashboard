@@ -3,13 +3,14 @@ let nowMoment = moment().format("MMMM Do YYYY");
 let displayDate = document.getElementById("currentDay");
 displayDate.innerHTML = nowMoment;
 
-var cities=[];
 var cityFormE1=document.querySelector("#city-search-form");
 var cityInputE1=document.querySelector("#city");
 var clearE1=document.querySelector("#clear-history");
 var cityName=document.querySelector("#city-name");
+var cities=[];
 var apiKey="8382807303ccd8efb6fc8344617069a3";
 
+ 
 
 //console.log(cityFormE1)
 var formSubmitHandler = function(event){
@@ -19,6 +20,10 @@ var formSubmitHandler = function(event){
     if (city) {
      //   console.log(city);
         currentWeather(city);
+        cities+=city;    
+        localStorage.setItem("Cities: ", JSON.stringify(cities));
+        var storedCities = JSON.parse(localStorage.getItem("Cities"));
+        console.log(cities);
     } else {
     //    alert("Please enter a city");
     }
@@ -77,10 +82,9 @@ function forecast(data) {
             <p>Wind: ${data.daily[i].wind_speed}</p>
             <p>Humidity: ${data.daily[i].humidity}</p>
         </div>  `
-    //
     }
 }
-//currentWeather(cityName);
+
 
 cityFormE1.addEventListener("click", formSubmitHandler);
 clearE1.addEventListener("click", clearHistory);
