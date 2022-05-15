@@ -19,12 +19,12 @@ An app that displays the weather for *any* location. Plan your next vacation in 
 
 ## Testing
 
-![Look an image!](/assets/ "Example of Output")
+![Look an image!](./assets/exampleimg.png "Example of Output")
 
 ## Live Site and Repo
 
-* View live site [here](brokennnn)
-* View repo [here](brokeeelikemyheart)
+* View live site [here](https://angelagola-ko.github.io/Weather-Dashboard/)
+* View repo [here](https://github.com/angelagola-ko/Weather-Dashboard)
 
 ## License
 
