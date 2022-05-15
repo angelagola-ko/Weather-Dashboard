@@ -24,6 +24,7 @@ var formSubmitHandler = function(event){
         localStorage.setItem("Cities: ", JSON.stringify(cities));
         var storedCities = JSON.parse(localStorage.getItem("Cities"));
         console.log(cities);
+        document.querySelector(".list-group").innerHTML=city;
     } else {
     //    alert("Please enter a city");
     }
