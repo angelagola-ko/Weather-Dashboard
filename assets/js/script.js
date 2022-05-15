@@ -3,11 +3,11 @@ let nowMoment = moment().format("MMMM Do YYYY");
 let displayDate = document.getElementById("currentDay");
 displayDate.innerHTML = nowMoment;
 
-var cityName="Sarasota";
 var cities=[];
 var cityFormE1=document.querySelector("#city-search-form");
 var cityInputE1=document.querySelector("#city");
 var clearE1=document.querySelector("#clear-history");
+var cityName=document.querySelector("#city-name");
 
 //console.log(cityFormE1)
 var formSubmitHandler = function(event){
@@ -34,6 +34,7 @@ function currentWeather(city){
             response.json().then(function(data) {
                 //     console.log(data);
                 currentCityWeather(data[0].lat, data[0].lon)
+                document.querySelector("#city-name").innerHTML=city;
             });
         } else {
             alert("Error: " + response.statusText);
@@ -69,9 +70,9 @@ function forecast(data) {
       ` <div class="col-md-2 bg-primary ml-2 mb-3 text-white rounded">
             <p>${nowMoment}</p>
             <img src="http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png"/> 
-            <p>Temp: ${data.daily[i].temp.day}</p>
+            <p>Temp: ${data.daily[i].temp.day} °F</p>
             <p>Wind: ${data.daily[i].wind_speed}</p>
-            <p>Humidit ${data.daily[i].humidity}</p>
+            <p>Humidity: ${data.daily[i].humidity}</p>
         </div>  `
     
     }
