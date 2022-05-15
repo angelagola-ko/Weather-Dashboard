@@ -13,6 +13,7 @@ var apiKey="8382807303ccd8efb6fc8344617069a3";
 
 //console.log(cityFormE1)
 var formSubmitHandler = function(event){
+    event.preventDefault();
   //  console.log("Heeeello")
     var city = cityInputE1.value.trim();
     if (city) {
@@ -64,14 +65,14 @@ function forecast(data) {
     document.querySelector("#currentHumid").innerHTML=data.current.humidity;
     document.querySelector("#currentWind").innerHTML=data.current.wind_speed;
     document.querySelector("#currentUV").innerHTML=data.current.uvi;
-    document.querySelector("#icon").setAttribute("src", `http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`);
-
+    document.querySelector("#icon").setAttribute("src", `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`);
+    document.querySelector("#displayWeather").innerHTML='';
 
     for (i=0; i<5; i++) {
-        document.querySelector(".row").innerHTML+=//${data.daily[i]}
+        document.querySelector("#displayWeather").innerHTML+=//${data.daily[i]}
       ` <div class="col-md-2 bg-primary ml-2 mb-3 text-white rounded">
             <p>${Intl.DateTimeFormat('en-us', {day:'2-digit', month:'long', year: 'numeric'}).format(data.daily[i].dt*1000)}</p>
-            <img src="http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png"/> 
+            <img src="https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png"/> 
             <p>Temp: ${data.daily[i].temp.day} °F</p>
             <p>Wind: ${data.daily[i].wind_speed}</p>
             <p>Humidity: ${data.daily[i].humidity}</p>
