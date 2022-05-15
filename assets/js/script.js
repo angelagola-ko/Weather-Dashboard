@@ -74,7 +74,7 @@ function forecast(data) {
             <p>Wind: ${data.daily[i].wind_speed}</p>
             <p>Humidity: ${data.daily[i].humidity}</p>
         </div>  `
-    
+    //
     }
 }
 //currentWeather(cityName);
