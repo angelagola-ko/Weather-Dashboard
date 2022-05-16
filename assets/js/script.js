@@ -57,7 +57,7 @@ var clearHistory = function()  {
 
 }
 
-
+//jhvhj
 function currentWeather(city){
     var queryURL= "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + apiKey;
     fetch(queryURL).then(function(response) {
