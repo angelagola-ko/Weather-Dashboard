@@ -3,12 +3,13 @@ let nowMoment = moment().format("MMMM Do YYYY");
 let displayDate = document.getElementById("currentDay");
 displayDate.innerHTML = nowMoment;
 
-var cityFormE1=document.querySelector("#city-search-form");
+var cityFormE1=document.querySelector("#search-button");
 var cityInputE1=document.querySelector("#city");
 var clearE1=document.querySelector("#clear-history");
 var cityName=document.querySelector("#city-name");
 var cities=[];
 var apiKey="8382807303ccd8efb6fc8344617069a3";
+var error= false;
 
  
 
@@ -20,19 +21,40 @@ var formSubmitHandler = function(event){
     if (city) {
      //   console.log(city);
         currentWeather(city);
-        cities+=city;    
-        localStorage.setItem("Cities: ", JSON.stringify(cities));
-        var storedCities = JSON.parse(localStorage.getItem("Cities"));
-        console.log(cities);
-        document.querySelector(".list-group").innerHTML=city;
+        cities.push(city);    
+        localStorage.setItem("cities", JSON.stringify(cities));
+        var storedCities = JSON.parse(localStorage.getItem("cities"));
+       // console.log(storedCities);
+      //  console.log(cities);
+      if (document.querySelector("#historyItem")) {
+          var node=document.querySelector("#historyItem");
+          document.querySelector("#history").removeChild(node);
+      }
+      var ul= document.createElement("ul");
+      ul.setAttribute("id" , "historyItem");
+        for (let i=0; i < cities.length; i++){
+            var li = document.createElement("li");
+            li.innerHTML=storedCities[i];
+            ul.append(li);
+        }
+       // console.log(storedCities);
+        document.querySelector("#history").append(ul);
+        
+        
     } else {
-    //    alert("Please enter a city");
+        //    alert("Please enter a city");
     }
    // saveSearch();
 }
 
 var clearHistory = function()  {
     localStorage.clear();
+    cities=[];
+    if (document.querySelector("#historyItem")) {
+        var node=document.querySelector("#historyItem");
+        document.querySelector("#history").removeChild(node);
+    }
+
 }
 
 
@@ -41,7 +63,10 @@ function currentWeather(city){
     fetch(queryURL).then(function(response) {
         if(response.ok) {
             response.json().then(function(data) {
-                //     console.log(data);
+                    if (data.length===0){
+                        alert('That is not a real place');
+                    }
+                     console.log(data);
                 currentCityWeather(data[0].lat, data[0].lon)
                 document.querySelector("#city-name").innerHTML=city;
             });
@@ -56,9 +81,9 @@ function currentCityWeather(lat,lon){
         if(response.ok) {
             response.json().then(function(data) {
                 console.log(data);
-                d = data;
+                //d = data;
                 forecast(data);
-                //    console.log(data);
+                    console.log(data);
             });
         } else {
             alert("Error:" +response.statusText);
